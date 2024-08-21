@@ -8,7 +8,7 @@ Copy script to your project, and set proper paths. Then add execution of script 
 
 Eg. `"database:push": "npm run database:generate:migration && npm run database:migrate && npm run database:generate:types && node src/utils/kysely-codegen-timpestamp-to-string.js"`
 
-You may also want to parse them with pg.types like so:
+You may also want to parse values with `pg.types` like so:
 ```
 const timestampzTypeId = 1184;
 const dateTypeId = 1082;
