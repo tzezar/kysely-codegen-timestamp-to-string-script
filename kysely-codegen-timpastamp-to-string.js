@@ -19,8 +19,19 @@ const replaceDateInFile = (file) => {
       return;
     }
 
-    // Replace "Date" with "string"
-    const updatedData = data.replace(/Date/g, 'string');
+    // Split the file content into lines
+    const lines = data.split('\n');
+
+    // Modify the line starting with "export type Timestamp"
+    const updatedLines = lines.map(line => {
+      if (line.startsWith('export type Timestamp')) {
+        return line.replace(/Date/g, 'string');
+      }
+      return line;
+    });
+
+    // Join the lines back into a single string
+    const updatedData = updatedLines.join('\n');
 
     // Write the updated content back to the file
     fs.writeFile(file, updatedData, 'utf8', (err) => {
