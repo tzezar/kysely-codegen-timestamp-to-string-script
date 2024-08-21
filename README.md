@@ -1,0 +1,1 @@
+# kysely-codegen-timestamp-to-string-script
